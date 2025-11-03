@@ -107,21 +107,6 @@ export function HeroSection() {
                     </button>
                 </div>
 
-                {/* Stats */}
-                <div className="flex gap-8 justify-center mt-16 flex-wrap">
-                    <div className="text-center">
-                        <div className="text-3xl font-bold text-cyan-400">10K+</div>
-                        <div className="text-sm text-gray-400">Prompts</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-3xl font-bold text-rose-400">5K+</div>
-                        <div className="text-sm text-gray-400">Users</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-3xl font-bold text-blue-400">50+</div>
-                        <div className="text-sm text-gray-400">Categories</div>
-                    </div>
-                </div>
             </div>
 
             {/* Grid Style Slider */}
@@ -154,9 +139,9 @@ export function HeroSection() {
                     }}
                     className="grid-slider"
                 >
-                    {sliderItems.map((item,i) => (
+                    {sliderItems.map((item, i) => (
                         <SwiperSlide key={item.id}>
-                            <div className={`bg-gradient-to-r ${item.color} ${i%2==0?'translate-y-10' :''} rounded-xl overflow-hidden aspect-[3/4] flex items-center justify-center text-center backdrop-blur-sm border border-white/10 shadow-lg`}>
+                            <div className={`bg-gradient-to-r ${item.color} ${i % 2 == 0 ? 'translate-y-10' : ''} rounded-xl overflow-hidden aspect-[3/4] flex items-center justify-center text-center backdrop-blur-sm border border-white/10 shadow-lg`}>
                                 <img src={item.image} alt={item.title} className='w-full h-full object-cover' />
                             </div>
                         </SwiperSlide>
