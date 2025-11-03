@@ -6,90 +6,163 @@ import {
     Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin
 } from 'lucide-react'
 
-import img1 from '../assets/unnamed.jpg'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
+import 'swiper/css'
 
-// Hero Slider Component
-function HeroSlider() {
+// Mock data for the slider items
+const sliderItems = [
+    {
+        id: 1,
+        title: "Creative Writing",
+        image: "https://image.pollinations.ai/prompt/creative%20writing%20concept%20art%20soft%20lighting",
+    },
+    {
+        id: 2,
+        title: "Code Generation",
+        image: "https://image.pollinations.ai/prompt/futuristic%20AI%20coding%20digital%20interface",
+    },
+    {
+        id: 3,
+        title: "Image Prompts",
+        image: "https://image.pollinations.ai/prompt/creative%20image%20generation%20concept%20vibrant%20colors",
+    },
+    {
+        id: 4,
+        title: "Business Ideas",
+        image: "https://image.pollinations.ai/prompt/startup%20innovation%20brainstorming%20in%20modern%20office",
+    },
+    {
+        id: 5,
+        title: "Academic Research",
+        image: "https://image.pollinations.ai/prompt/scientific%20research%20data%20analysis%20abstract",
+    },
+    {
+        id: 6,
+        title: "Marketing Copy",
+        image: "https://image.pollinations.ai/prompt/digital%20marketing%20concept%20colorful%20design",
+    },
+    {
+        id: 2,
+        title: "Code Generation",
+        image: "https://image.pollinations.ai/prompt/futuristic%20AI%20coding%20digital%20interface",
+    },
+    {
+        id: 3,
+        title: "Image Prompts",
+        image: "https://image.pollinations.ai/prompt/creative%20image%20generation%20concept%20vibrant%20colors",
+    },
+    {
+        id: 4,
+        title: "Business Ideas",
+        image: "https://image.pollinations.ai/prompt/startup%20innovation%20brainstorming%20in%20modern%20office",
+    },
+    {
+        id: 5,
+        title: "Academic Research",
+        image: "https://image.pollinations.ai/prompt/scientific%20research%20data%20analysis%20abstract",
+    },
+    {
+        id: 6,
+        title: "Marketing Copy",
+        image: "https://image.pollinations.ai/prompt/digital%20marketing%20concept%20colorful%20design",
+    },
+];
+
+
+export function HeroSection() {
     const navigate = useNavigate()
-    const [currentSlide, setCurrentSlide] = useState(0)
-
-    const slides = [
-        {
-            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920",
-            title: "Discover the power of AI",
-            subtitle: "Professional prompts for every AI platform",
-            cta: "Try now",
-            gradient: "from-cyan-600/20 to-darkbackground"
-        },
-        {
-            image: img1,
-            title: "In-depth, free tutorials",
-            subtitle: "Learn to use AI tools efficiently",
-            cta: "Start learning",
-            gradient: "from-rose-600/20 to-darkbackground"
-        },
-        {
-            image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1920",
-            title: "A vast library of resources",
-            subtitle: "Thousands of prompts and creative tools",
-            cta: "Explore more",
-            gradient: "from-purple-600/20 to-darkbackground"
-        }
-    ]
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % slides.length)
-        }, 5000)
-        return () => clearInterval(timer)
-    }, [])
 
     return (
-        <div className="relative h-[90vh] overflow-hidden">
-            {slides.map((slide, index) => (
-                <div
-                    key={index}
-                    className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
-                        }`}
-                >
-                    <img
-                        src={slide.image}
-                        alt={slide.title}
-                        className="w-full h-full object-cover"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-b to-90% ${slide.gradient}`}></div>
+        <div className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden pt-10">
+            {/* Animated background blobs */}
+            <div className="bg-cyan-500 w-96 h-96 blur-3xl absolute top-20 right-1/4 opacity-30 animate-pulse"></div>
+            <div className="bg-rose-500 w-80 h-80 blur-3xl absolute bottom-20 left-1/4 opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-                    <div className="absolute inset-0 flex items-center justify-center text-center px-8">
-                        <div className="max-w-4xl">
-                            <h1 className="text-6xl md:text-7xl font-bold mb-6 text-white animate-fade-in">
-                                {slide.title}
-                            </h1>
-                            <p className="text-xl md:text-2xl text-white/90 mb-8 animate-fade-in">
-                                {slide.subtitle}
-                            </p>
-                            <button
-                                onClick={() => navigate('/category')}
-                                className="bg-white text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-all shadow-2xl hover:shadow-white/50 flex items-center gap-2 mx-auto"
-                            >
-                                {slide.cta}
-                                <ArrowRight className="w-5 h-5" />
-                            </button>
-                        </div>
+            <div className="relative z-10 text-center px-8 max-w-5xl flex-1 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-6 backdrop-blur-sm w-fit m-auto">
+                    <Sparkles className="w-4 h-4 text-cyan-400" />
+                    <span className="text-sm text-cyan-300">AI-Powered Creativity</span>
+                </div>
+
+                <h1 className="text-7xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-rose-400 bg-clip-text text-transparent">
+                    Prompt Hub
+                </h1>
+
+                <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Discover, create, and share AI prompts that transform ideas into reality.
+                    Unleash the power of artificial intelligence.
+                </p>
+
+                <div className="flex gap-4 justify-center flex-wrap">
+                    <button
+                        onClick={() => navigate('/category')}
+                        className="group bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition-all shadow-lg shadow-cyan-500/30 flex items-center gap-2"
+                    >
+                        Explore Prompts
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                    <button className="bg-white/5 backdrop-blur-sm border border-white/10 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-all">
+                        Learn More
+                    </button>
+                </div>
+
+                {/* Stats */}
+                <div className="flex gap-8 justify-center mt-16 flex-wrap">
+                    <div className="text-center">
+                        <div className="text-3xl font-bold text-cyan-400">10K+</div>
+                        <div className="text-sm text-gray-400">Prompts</div>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-3xl font-bold text-rose-400">5K+</div>
+                        <div className="text-sm text-gray-400">Users</div>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-3xl font-bold text-blue-400">50+</div>
+                        <div className="text-sm text-gray-400">Categories</div>
                     </div>
                 </div>
-            ))}
+            </div>
 
-            {/* Slide Indicators */}
-            {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
-                {slides.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => setCurrentSlide(index)}
-                        className={`h-2 rounded-full transition-all ${index === currentSlide ? 'w-12 bg-white' : 'w-2 bg-white/50'
-                            }`}
-                    />
-                ))}
-            </div> */}
+            {/* Grid Style Slider */}
+            <div className="w-screen mx-auto pb-8 relative z-10 translate-y-10">
+                <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-darkbackground from-20% to-transparent z-10"></div>
+                <Swiper
+                    modules={[Autoplay]}
+                    spaceBetween={20}
+                    slidesPerView={5}
+                    loop={true}
+                    autoplay={{
+                        delay: 0,
+                        disableOnInteraction: false,
+                    }}
+                    speed={4000}
+                    freeMode={true}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 2,
+                            spaceBetween: 10,
+                        },
+                        640: {
+                            slidesPerView: 3,
+                            spaceBetween: 15,
+                        },
+                        1024: {
+                            slidesPerView: 6,
+                            spaceBetween: 20,
+                        },
+                    }}
+                    className="grid-slider"
+                >
+                    {sliderItems.map((item,i) => (
+                        <SwiperSlide key={item.id}>
+                            <div className={`bg-gradient-to-r ${item.color} ${i%2==0?'translate-y-10' :''} rounded-xl overflow-hidden aspect-[3/4] flex items-center justify-center text-center backdrop-blur-sm border border-white/10 shadow-lg`}>
+                                <img src={item.image} alt={item.title} className='w-full h-full object-cover' />
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </div>
     )
 }
@@ -106,7 +179,7 @@ function ServicesSection() {
 
     return (
         <div className="py-20 px-8 relative">
-            <div className="bg-cyan-500 w-96 h-96 blur-3xl absolute bottom-10 left-10 opacity-20"></div>
+            <div className="bg-cyan-500 w-96 h-96 blur-3xl absolute bottom-10 left-10 opacity-20 animate-pulse"></div>
 
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
@@ -168,7 +241,7 @@ function AboutStatsSection() {
 
     return (
         <div className="py-20 px-8 relative ">
-            <div className="bg-rose-500 w-96 h-96 blur-3xl absolute top-10 right-10 opacity-20"></div>
+            <div className="bg-rose-500 w-96 h-96 blur-3xl absolute top-10 right-10 opacity-20 animate-pulse"></div>
 
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <div className="relative">
@@ -228,7 +301,7 @@ function PlatformsSection() {
 
     return (
         <div className="py-20 px-8 relative">
-            <div className="bg-cyan-500 w-96 h-96 blur-3xl absolute bottom-10 left-10 opacity-20"></div>
+            <div className="bg-cyan-500 w-96 h-96 blur-3xl absolute bottom-10 left-10 opacity-20 animate-pulse"></div>
 
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
@@ -282,7 +355,7 @@ function TutorialsSection() {
 
     return (
         <div className="py-20 px-8 relative">
-            <div className="bg-rose-500 w-96 h-96 blur-3xl absolute bottom-10 right-10 opacity-20"></div>
+            <div className="bg-rose-500 w-96 h-96 blur-3xl absolute bottom-10 right-10 opacity-20 animate-pulse"></div>
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-16">
@@ -361,7 +434,7 @@ function FAQSection() {
 
     return (
         <div className="py-20 px-8 relative">
-            <div className="bg-cyan-500 w-96 h-96 blur-3xl absolute bottom-10 left-10 opacity-20"></div>
+            <div className="bg-cyan-500 w-96 h-96 blur-3xl absolute bottom-10 left-10 opacity-20 animate-pulse"></div>
 
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
@@ -408,7 +481,7 @@ function FAQSection() {
 export default function Home() {
     return (
         <div className="min-h-scree text-white">
-            <HeroSlider />
+            <HeroSection />
             <ServicesSection />
             <AboutStatsSection />
             <PlatformsSection />

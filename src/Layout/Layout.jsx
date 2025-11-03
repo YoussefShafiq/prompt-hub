@@ -9,14 +9,14 @@ export default function Layout() {
 
     const { pathname } = useLocation()
     return <>
-        <div className={`pb-24 ${pathname != '/' && 'pt-24'} bg-white dark:bg-darkbackground text-black dark:text-white`}>
+        <div className={`pb-24 pt-24 bg-white dark:bg-darkbackground text-black dark:text-white`}>
             <Navbar />
             <Outlet></Outlet>
             <SearchInput />
             <div className="fixed lg:top-10 lg:right-14 bottom-5 right-5 z-50">
                 <DarkmodeToggle />
             </div>
-            <Footer/>
+            <Footer />
         </div>
     </>
 }
