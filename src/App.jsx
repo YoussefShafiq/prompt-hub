@@ -13,7 +13,7 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: '', element: <Layout />, errorElement: <ErrorElement />, children: [
+      path: '', element: <Layout />, children: [
         { path: 'category', element: <Category /> },
         { path: 'prompt/:id', element: <PromptDetail /> },
         { index: true, element: <Home /> },
