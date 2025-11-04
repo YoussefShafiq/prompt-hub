@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import SearchInput from './SearchInput'
 import Navbar from './Navbar'
@@ -8,6 +8,11 @@ import Footer from './Footer'
 export default function Layout() {
 
     const { pathname } = useLocation()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [pathname])
+
     return <>
         <div className={`pb-24 pt-24 bg-white dark:bg-darkbackground text-black dark:text-white`}>
             <Navbar />

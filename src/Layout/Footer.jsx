@@ -1,5 +1,7 @@
-import { Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import React from 'react'
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 
 // Footer Component
 export default function Footer() {
@@ -49,16 +51,16 @@ export default function Footer() {
                             </div>
                             <div className="flex gap-3 mt-4">
                                 <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-cyan-500/20 transition-colors">
-                                    <Facebook className="w-5 h-5" />
+                                    <FaFacebook className="w-5 h-5" />
                                 </a>
                                 <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-cyan-500/20 transition-colors">
-                                    <Twitter className="w-5 h-5" />
+                                    <FaXTwitter className="w-5 h-5" />
                                 </a>
                                 <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-cyan-500/20 transition-colors">
-                                    <Instagram className="w-5 h-5" />
+                                    <FaInstagram className="w-5 h-5" />
                                 </a>
                                 <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-cyan-500/20 transition-colors">
-                                    <Linkedin className="w-5 h-5" />
+                                    <FaLinkedin className="w-5 h-5" />
                                 </a>
                             </div>
                         </div>

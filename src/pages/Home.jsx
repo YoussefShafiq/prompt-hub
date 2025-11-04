@@ -80,10 +80,7 @@ export function HeroSection() {
             <div className="bg-rose-500 w-80 h-80 blur-3xl absolute bottom-20 left-1/4 opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
 
             <div className="relative z-10 text-center px-8 max-w-5xl flex-1 flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-6 backdrop-blur-sm w-fit m-auto">
-                    <Sparkles className="w-4 h-4 text-cyan-400" />
-                    <span className="text-sm text-cyan-300">AI-Powered Creativity</span>
-                </div>
+                
 
                 <h1 className="text-7xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-rose-400 bg-clip-text text-transparent">
                     Prompt Hub
